@@ -22,21 +22,22 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity  {
 
     private ListView hoofdList;
     ArrayAdapter adapter;
     String token;
 
     public ArrayList<HUELamp> lampen;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lamp_detail);
         lampen = new ArrayList<HUELamp>();
 
 
-        this.hoofdList = (ListView) findViewById(R.id.listview_main);
+        /*this.hoofdList = (ListView) findViewById(R.id.listview_main);
 
 
         adapter = new hoofdAdapter(this.getApplicationContext(), lampen);
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Intent intent = new Intent(getApplicationContext(),LampDetail.class);
         intent.putExtra("LAMP_ITEM", item);
         startActivity(intent);
+    }*/
     }
-}
 
+}
