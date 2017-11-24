@@ -3,6 +3,7 @@ package com.example.tmbro.philipshueapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,9 +14,11 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -45,17 +48,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        Log.d(TAG, "onCreate: json from asset " + json );
 
         //art = blindWallsBreda.createFromJson(json);
-        String url = "https://api.blindwalls.gallery/apiv2/murals";
+        String url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights";
 
-        JsonArrayRequest jsObjRequest = new JsonArrayRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
-                    public void onResponse(JSONArray response) {
+                    public void onResponse(JSONObject response) {
 
-                        for(int i = 0; i < response.length(); i++){
+                        for(int i = 1; i < response.length() + 2; i++){
                             try {
-                                lampen.add(new HUELamp(response.getJSONObject(i)));
+                                lampen.add(new HUELamp(response.getJSONObject(String.valueOf(i))));
+
+                                Log.d("REE", response.getJSONObject(String.valueOf(i)).toString());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

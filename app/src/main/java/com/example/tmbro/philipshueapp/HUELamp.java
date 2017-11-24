@@ -75,3 +75,4 @@ public class HUELamp implements Serializable {
         return name;
     }
 }
+
