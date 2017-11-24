@@ -21,12 +21,6 @@ public class HUELamp implements Serializable {
 
     public HUELamp(JSONObject json) {
 
-        try {
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
     }
 }
