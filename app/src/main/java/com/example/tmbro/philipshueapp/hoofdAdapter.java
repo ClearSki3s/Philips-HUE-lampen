@@ -1,6 +1,7 @@
 package com.example.tmbro.philipshueapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +26,18 @@ import java.util.ArrayList;
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.hoofd_adapter,parent,false);
             }
 
+            TextView naam = (TextView) convertView.findViewById(R.id.naam_adapter);
+            naam.setText(aa.getName());
 
+            float[] hsv = new float[3];
+            hsv[0] = aa.getHue();
+            hsv[1] = aa.getSat();
+            hsv[2] = aa.getBri();
+            convertView.setBackgroundColor(Color.HSVToColor(hsv));
             return convertView;
         }
+
+
     }
 
 
