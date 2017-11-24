@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 //        Log.d(TAG, "onCreate: json from asset " + json );
 
         //art = blindWallsBreda.createFromJson(json);
-        String url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/config";
+        String url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights";
 
         JsonObjectRequest jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -56,10 +56,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        for(int i = 0; i < response.length(); i++){
+                        for(int i = 1; i < response.length() + 2; i++){
                             try {
                                 lampen.add(new HUELamp(response.getJSONObject(String.valueOf(i))));
-                                Log.d("REE", lampen.get(i).toString());
+
+                                Log.d("REE", response.getJSONObject(String.valueOf(i)).toString());
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

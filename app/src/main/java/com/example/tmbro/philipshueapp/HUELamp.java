@@ -14,13 +14,13 @@ import java.util.List;
 
 public class HUELamp implements Serializable {
 
-
+private JSONObject state;
 
     public HUELamp() {
     }
 
     public HUELamp(JSONObject json) {
-
+state = json.getJSONObject("state");
 
     }
 }
