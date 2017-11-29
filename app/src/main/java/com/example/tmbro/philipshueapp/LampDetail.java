@@ -36,7 +36,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
         HUELamp item = (HUELamp) intent.getSerializableExtra("LAMP_ITEM");
         url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights/" + item.getId() + "/state";
         TextView name = (TextView) findViewById(R.id.nameText);
-        name.setText(item.getId());
+        name.setText(item.getName());
 
         briBar = (SeekBar) findViewById(R.id.briBar);
         briBar.setMax(254);
@@ -47,7 +47,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
         satBar.setProgress(item.getSat());
 
         hueBar = (SeekBar) findViewById(R.id.hueBar);
-        hueBar.setMax(182);
+        hueBar.setMax(65535);
         hueBar.setProgress(item.getHue());
 
         onSwitch = (Switch) findViewById(R.id.onSwitch);
@@ -89,7 +89,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(LampDetail.this, "Request failed", Toast.LENGTH_SHORT).show();
+                        
                         error.printStackTrace();
 
 
@@ -99,5 +99,10 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
         // Access the RequestQueue through your singleton class.
 
         MySingleton.getInstance(LampDetail.this).addToRequestQueue(jsObjRequest);
+
+        Intent i = getBaseContext().getPackageManager()
+                .getLaunchIntentForPackage( getBaseContext().getPackageName() );
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(i);
     }
 }
