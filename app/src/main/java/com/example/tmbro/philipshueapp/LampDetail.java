@@ -30,13 +30,11 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lamp_detail);
 
-
-
         Intent intent = getIntent();
         HUELamp item = (HUELamp) intent.getSerializableExtra("LAMP_ITEM");
 
         TextView name = (TextView) findViewById(R.id.nameText);
-        name.setText(item.getName());
+        name.setText(item.getId());
 
         briBar = (SeekBar) findViewById(R.id.briBar);
         briBar.setMax(254);
@@ -53,9 +51,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
         onSwitch = (Switch) findViewById(R.id.onSwitch);
 
         onSwitch.setChecked(item.isOn());
-
-
-
+        
 
         View decor = findViewById(R.id.decor);
         decor.setBackgroundColor(Color.HSVToColor(item.getHsv()));

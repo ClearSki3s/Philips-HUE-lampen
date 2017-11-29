@@ -57,12 +57,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        for(int i = 1; i < response.length(); i++){
+
                             try {
                                 Iterator<String> iterator = response.keys();
                                 while(iterator.hasNext()) {
                                     String key = iterator.next();
-                                    lampen.add(new HUELamp(response.getJSONObject(key)));
+                                    lampen.add(new HUELamp(response.getJSONObject(key), key));
                                     Log.d("KEY", response.getJSONObject(key).toString());
                                 }
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                        }
+
 
                         adapter.notifyDataSetChanged();
 
