@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -25,6 +26,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
     SeekBar satBar;
     SeekBar hueBar;
     Switch onSwitch;
+    String url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
 
         Intent intent = getIntent();
         HUELamp item = (HUELamp) intent.getSerializableExtra("LAMP_ITEM");
-
+        url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights/" + item.getId() + "/state";
         TextView name = (TextView) findViewById(R.id.nameText);
         name.setText(item.getId());
 
@@ -62,7 +64,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        String url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights";
+
         JSONObject jsonObject = new JSONObject();
 
         try {
@@ -81,9 +83,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
 
                     @Override
                     public void onResponse(JSONObject response) {
-
-
-
+                        Log.d("response", response.toString());
                     }
                 }, new Response.ErrorListener() {
 

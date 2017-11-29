@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Hue.iml" filepath="$PROJECT_DIR$/Hue.iml" />
       <module fileurl="file://C:\Users\tmbro\Documents\Avans\jaar 2\client side programmeren\PhilipsHUEApp\Philips-HUE-lampen\Hue.iml" filepath="C:\Users\tmbro\Documents\Avans\jaar 2\client side programmeren\PhilipsHUEApp\Philips-HUE-lampen\Hue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Philips-HUE-lampen.iml" filepath="$PROJECT_DIR$/Philips-HUE-lampen.iml" />
       <module fileurl="file://C:\Users\Trist\Documents\gitKraken\Hue\Philips-HUE-lampen.iml" filepath="C:\Users\Trist\Documents\gitKraken\Hue\Philips-HUE-lampen.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
