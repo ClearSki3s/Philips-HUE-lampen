@@ -80,9 +80,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                 });
 
-// Access the RequestQueue through your singleton class.
-
-
+        // Access the RequestQueue through your singleton class.
 
         MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
 

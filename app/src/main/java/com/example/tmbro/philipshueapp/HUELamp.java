@@ -14,7 +14,7 @@ import java.util.List;
 
 public class HUELamp implements Serializable {
 
-    private JSONObject state;
+    private static transient JSONObject state;
     private boolean on;
     private int bri;
     private int hue;
@@ -22,6 +22,9 @@ public class HUELamp implements Serializable {
     private String effect;
     private String type;
     private String name;
+
+
+    private float[] hsv;
 
     public HUELamp(JSONObject json) {
 
@@ -36,6 +39,11 @@ public class HUELamp implements Serializable {
 
             type = json.getString("type");
             name = json.getString("name");
+
+            hsv = new float[3];
+            hsv[0]= hue/(float)182.0;
+            hsv[1]= sat/(float)254.0;
+            hsv[2]= bri/(float)254.0;
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -73,6 +81,10 @@ public class HUELamp implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    public float[] getHsv() {
+        return hsv;
     }
 }
 

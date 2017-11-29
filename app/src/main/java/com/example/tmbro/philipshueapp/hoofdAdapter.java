@@ -29,11 +29,7 @@ import java.util.ArrayList;
             TextView naam = (TextView) convertView.findViewById(R.id.naam_adapter);
             naam.setText(aa.getName());
 
-            float[] hsv = new float[3];
-            hsv[0] = aa.getHue();
-            hsv[1] = aa.getSat();
-            hsv[2] = aa.getBri();
-            convertView.setBackgroundColor(Color.HSVToColor(hsv));
+            convertView.setBackgroundColor(Color.HSVToColor(aa.getHsv()));
             return convertView;
         }
 

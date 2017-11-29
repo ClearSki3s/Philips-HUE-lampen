@@ -3,11 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
+    android:id="@+id/decor"
     android:layout_height="match_parent"
     tools:context="com.example.tmbro.philipshueapp.LampDetail">
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/onSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -22,10 +24,10 @@
         android:id="@+id/briBar"
         android:layout_width="172dp"
         android:layout_height="19dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/onSwitch" />
 
     <SeekBar
         android:id="@+id/hueBar"
