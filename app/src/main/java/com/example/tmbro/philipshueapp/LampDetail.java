@@ -68,6 +68,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
     public void onClick(View view) {
         String url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights";
         JSONObject jsonObject = new JSONObject();
+
         try {
 
             jsonObject.put("on", onSwitch.isChecked());

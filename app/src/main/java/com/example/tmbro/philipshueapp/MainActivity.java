@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -56,11 +57,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     @Override
                     public void onResponse(JSONObject response) {
 
-                        for(int i = 1; i < response.length() + 2; i++){
+                        for(int i = 1; i < response.length(); i++){
                             try {
-                                lampen.add(new HUELamp(response.getJSONObject(String.valueOf(i))));
+                                Iterator<String> iterator = response.keys();
+                                while(iterator.hasNext()) {
+                                    String key = iterator.next();
+                                    lampen.add(new HUELamp(response.getJSONObject(key)));
+                                    Log.d("KEY", response.getJSONObject(key).toString());
+                                }
 
-                                Log.d("REE", response.getJSONObject(String.valueOf(i)).toString());
+
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
