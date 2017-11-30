@@ -60,6 +60,57 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
 
         Button button = findViewById(R.id.applyButton);
         button.setOnClickListener(this);
+
+        briBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                View decor = findViewById(R.id.decor);
+                decor.setBackgroundColor(Color.HSVToColor(getArray()));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                View decor = findViewById(R.id.decor);
+                decor.setBackgroundColor(Color.HSVToColor(getArray()));
+            }
+        });
+        satBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                View decor = findViewById(R.id.decor);
+                decor.setBackgroundColor(Color.HSVToColor(getArray()));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                View decor = findViewById(R.id.decor);
+                decor.setBackgroundColor(Color.HSVToColor(getArray()));
+            }
+        });
+        hueBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                View decor = findViewById(R.id.decor);
+                decor.setBackgroundColor(Color.HSVToColor(getArray()));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                View decor = findViewById(R.id.decor);
+                decor.setBackgroundColor(Color.HSVToColor(getArray()));
+            }
+        });
+    }
+
+    private float[] getArray() {
+        float[]hsv = new float[3];
+        hsv[0]= hueBar.getProgress()/(float)182.0;
+        hsv[1]= satBar.getProgress()/(float)254.0;
+        hsv[2]= briBar.getProgress()/(float)254.0;
+        return hsv;
     }
 
     @Override
@@ -89,7 +140,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        
+
                         error.printStackTrace();
 
 
