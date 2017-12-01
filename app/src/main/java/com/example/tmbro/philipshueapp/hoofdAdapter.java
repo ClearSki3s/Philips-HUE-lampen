@@ -28,8 +28,12 @@ import java.util.ArrayList;
 
             TextView naam = (TextView) convertView.findViewById(R.id.naam_adapter);
             naam.setText(aa.getName());
-
-            convertView.setBackgroundColor(Color.HSVToColor(aa.getHsv()));
+            if(!aa.isOn()){
+                convertView.setBackgroundColor(Color.BLACK);
+                naam.setTextColor(Color.WHITE);
+            } else {
+                convertView.setBackgroundColor(Color.HSVToColor(aa.getHsv()));
+            }
             return convertView;
         }
 

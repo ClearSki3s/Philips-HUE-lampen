@@ -22,12 +22,15 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView hoofdList;
     ArrayAdapter adapter;
     String token;
+    JsonObjectRequest jsObjRequest;
 
     public ArrayList<HUELamp> lampen;
     @Override
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //art = blindWallsBreda.createFromJson(json);
         String url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights";
 
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+        jsObjRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
                     @Override
@@ -89,7 +92,27 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         // Access the RequestQueue through your singleton class.
 
-        MySingleton.getInstance(this).addToRequestQueue(jsObjRequest);
+
+
+        Timer t = new Timer();
+
+        TimerTask task = new TimerTask() {
+
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        lampen.clear();
+                        adapter.notifyDataSetChanged();
+                        MySingleton.getInstance(MainActivity.this).addToRequestQueue(jsObjRequest);
+                    }
+                });
+            }
+        };
+
+        t.scheduleAtFixedRate(task, 0, 2500);
 
     }
     @Override
@@ -99,5 +122,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         intent.putExtra("LAMP_ITEM", item);
         startActivity(intent);
     }
+
 }
 
