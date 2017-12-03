@@ -147,8 +147,6 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
                     }
                 });
 
-        // Access the RequestQueue through your singleton class.
-
         MySingleton.getInstance(LampDetail.this).addToRequestQueue(jsObjRequest);
 
         Intent i = getBaseContext().getPackageManager()

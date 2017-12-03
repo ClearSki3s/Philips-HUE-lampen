@@ -47,11 +47,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         hoofdList.setAdapter(adapter);
         hoofdList.setOnItemClickListener(this);
 
-        //fetch();
-        //String json = JsonUtil.loadJSONFromAsset(MainActivity.this);
-//        Log.d(TAG, "onCreate: json from asset " + json );
-
-        //art = blindWallsBreda.createFromJson(json);
         String url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights";
 
         jsObjRequest = new JsonObjectRequest
@@ -90,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                 });
 
-        // Access the RequestQueue through your singleton class.
 
 
 
