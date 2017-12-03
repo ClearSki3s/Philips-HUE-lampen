@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         };
 
-        t.scheduleAtFixedRate(task, 0, 2500);
+        t.scheduleAtFixedRate(task, 0, 5000);
 
     }
     @Override
