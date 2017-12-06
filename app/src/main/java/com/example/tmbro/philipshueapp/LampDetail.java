@@ -27,6 +27,10 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
     SeekBar hueBar;
     Switch onSwitch;
     String url;
+    TextView name;
+    TextView briText;
+    TextView hueText;
+    TextView satText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +39,11 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
         Intent intent = getIntent();
         HUELamp item = (HUELamp) intent.getSerializableExtra("LAMP_ITEM");
         url = "http://145.48.205.33/api/iYrmsQq1wu5FxF9CPqpJCnm1GpPVylKBWDUsNDhB/lights/" + item.getId() + "/state";
-        TextView name = (TextView) findViewById(R.id.nameText);
+        name = (TextView) findViewById(R.id.nameText);
         name.setText(item.getName());
+        briText = findViewById(R.id.briText);
+        hueText = findViewById(R.id.hueText);
+        satText = findViewById(R.id.satText);
 
         briBar = (SeekBar) findViewById(R.id.briBar);
         briBar.setMax(254);
@@ -53,7 +60,19 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
         onSwitch = (Switch) findViewById(R.id.onSwitch);
 
         onSwitch.setChecked(item.isOn());
-        
+        if(briBar.getProgress() < 128) {
+            name.setTextColor(Color.WHITE);
+            briText.setTextColor(Color.WHITE);
+            hueText.setTextColor(Color.WHITE);
+            satText.setTextColor(Color.WHITE);
+            onSwitch.setTextColor(Color.WHITE);
+        } else {
+            name.setTextColor(Color.BLACK);
+            briText.setTextColor(Color.BLACK);
+            hueText.setTextColor(Color.BLACK);
+            satText.setTextColor(Color.BLACK);
+            onSwitch.setTextColor(Color.BLACK);
+        }
 
         View decor = findViewById(R.id.decor);
         decor.setBackgroundColor(Color.HSVToColor(item.getHsv()));
@@ -66,6 +85,19 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 View decor = findViewById(R.id.decor);
                 decor.setBackgroundColor(Color.HSVToColor(getArray()));
+                if(briBar.getProgress() < 128) {
+                    name.setTextColor(Color.WHITE);
+                    briText.setTextColor(Color.WHITE);
+                    hueText.setTextColor(Color.WHITE);
+                    satText.setTextColor(Color.WHITE);
+                    onSwitch.setTextColor(Color.WHITE);
+                } else {
+                    name.setTextColor(Color.BLACK);
+                    briText.setTextColor(Color.BLACK);
+                    hueText.setTextColor(Color.BLACK);
+                    satText.setTextColor(Color.BLACK);
+                    onSwitch.setTextColor(Color.BLACK);
+                }
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {}
@@ -73,6 +105,19 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
             public void onStopTrackingTouch(SeekBar seekBar) {
                 View decor = findViewById(R.id.decor);
                 decor.setBackgroundColor(Color.HSVToColor(getArray()));
+                if(briBar.getProgress() < 128) {
+                    name.setTextColor(Color.WHITE);
+                    briText.setTextColor(Color.WHITE);
+                    hueText.setTextColor(Color.WHITE);
+                    satText.setTextColor(Color.WHITE);
+                    onSwitch.setTextColor(Color.WHITE);
+                } else {
+                    name.setTextColor(Color.BLACK);
+                    briText.setTextColor(Color.BLACK);
+                    hueText.setTextColor(Color.BLACK);
+                    satText.setTextColor(Color.BLACK);
+                    onSwitch.setTextColor(Color.BLACK);
+                }
             }
         });
         satBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

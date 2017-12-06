@@ -31,6 +31,9 @@ import java.util.ArrayList;
             if(!aa.isOn()){
                 convertView.setBackgroundColor(Color.BLACK);
                 naam.setTextColor(Color.WHITE);
+            } else if(aa.getBri() < 128){
+                naam.setTextColor(Color.WHITE);
+                convertView.setBackgroundColor(Color.HSVToColor(aa.getHsv()));
             } else {
                 convertView.setBackgroundColor(Color.HSVToColor(aa.getHsv()));
             }
