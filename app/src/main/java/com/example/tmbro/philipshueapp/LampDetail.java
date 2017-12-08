@@ -130,8 +130,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
             public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                View decor = findViewById(R.id.decor);
-                decor.setBackgroundColor(Color.HSVToColor(getArray()));
+
             }
         });
         hueBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -144,8 +143,7 @@ public class LampDetail extends AppCompatActivity implements View.OnClickListene
             public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                View decor = findViewById(R.id.decor);
-                decor.setBackgroundColor(Color.HSVToColor(getArray()));
+
             }
         });
     }
